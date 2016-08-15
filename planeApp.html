@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src = "angular.min.js"></script>
+		<title>
+		Plane App
+		</title>
+	</head>
+	<body ng-app = "app">
+		<div ng-controller= "Controller as status">
+		<p>Enter your flight number:
+			<input ng-model = "status.flightNumber">
+			<button ng-click = "status.userSubmit(flightNumber)">Check Status</button>
+			<br>
+			{{status.intro}}{{status.usersFlight}} {{status.flightStatus}} {{status.flightUpdate}}
+		</p>
+	
+		</div>
+		<script src = "planeApp.js"></script>
+		 
+	</body>
+
+
+
+</html>
