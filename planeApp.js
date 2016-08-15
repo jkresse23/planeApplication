@@ -16,28 +16,49 @@ var app = angular.module("app", []);
 
 app.controller("Controller", function() {
 	
-	this.flights = {
-		1 : {status : "is delayed. I'm so sorry!"},
-		2 : {status : "is right on time.  Lucky you!"},
-		7 : {status : "already left.  Where were you?"}
+	this.flights = [
+		{flightID : "1", status : "is delayed. I'm so sorry!"},
+		{flightID : "2", status : "is right on time.  Lucky you!"},
+		{flightID : "7", status : "already left.  Where were you?"}
+		
+		];
 	
-	};
-
-
 	this.userSubmit = function(flightNumber) {
-	
+		
 		
 		this.flightUpdate = "Going through.";
 		
 		this.intro = "Flight #";
 		
+		for (this.i = 0; this.i < this.flights.length; this.i++) {
+
+			
+			if (this.flights[this.i].flightID === this.flightNumber) {
+				
+				console.log("Match!");
+				
+				this.flightStatus = this.flights[this.i].status;
+				
+				return "";
+				
+				} else {
+				
+				console.log("No Match!");
+				
+				this.flightStatus = "does not exist in your system.  Please re-enter your flight number.";
+				
+				}			
+			};		
+		
+		
 		this.usersFlight = this.flightNumber;
 		
-		this.flightStatus = this.flights[this.usersFlight].status;
+		//this.flightStatus = this.flights[this.usersFlight].status;
 		
 	
 	};
 	
+	console.log(this.flights);
 /*	this.addNewFlight = function (newFlightNumber, newFlightStatus) {
 	
 		this.newFlight = this.flights.add[this.newFlightNumber];
