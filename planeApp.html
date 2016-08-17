@@ -14,6 +14,20 @@
 			<br>
 			{{status.intro}}{{status.usersFlight}} {{status.flightStatus}} {{status.flightUpdate}}
 		</p>
+		<p> Add a new flight to our records:
+			<input ng-model = "status.newFlightNumber">
+			<input ng-model = "status.newFlightStatus">
+			<button ng-click = "status.addNewFlight(newFlightNumber, newFlightStatus)">Add</button>
+			<br>
+			{{status.thankYou}}{{status.newFlightDisplayed}}
+		</p>
+		<p>
+			Show all flights: <input type="checkbox" ng-model="showAllFlights">
+		</p>
+		<p ng-show = "showAllFlights" ng-repeat= "x in status.flights">
+			<br>
+			<b>Flight #:</b> {{x.flightID}} <b>Status:</b> {{x.status}}
+		</p>
 	
 		</div>
 		<script src = "planeApp.js"></script>
